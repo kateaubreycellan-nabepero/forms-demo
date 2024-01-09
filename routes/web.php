@@ -14,17 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-
-    $user = Auth::user();
-
-    if ($user->isAdmin())
-    {
-        return "This user is an administrator.";
-    }
-    return "This user is a subscriber.";
-
-
+    return view('welcome');
 });
 
 Auth::routes();
@@ -36,3 +26,5 @@ Route::get('/admin/user/roles', ['middleware'=>'role', function() {
     return "test";
 
 }]);
+
+Route::get('/admin', 'App\Http\Controllers\AdminController@index');
