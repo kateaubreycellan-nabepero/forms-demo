@@ -21,10 +21,18 @@ Route::get('/', function () {
         'content'=>'more content',
     ];
 
-    Mail::send('emails.test', $data, function($message) {
-        $message->to("test@test.com", "Test");
-        $message->subject("Hello!");
-
+    // Configure .env file for the SMTP endpoints
+    Mail::send('emails.test', $data, function ($message) {
+        $message->from('john@johndoe.com', 'John Doe');
+        $message->sender('john@johndoe.com', 'John Doe');
+        $message->to('john@johndoe.com', 'John Doe');
+        $message->cc('john@johndoe.com', 'John Doe');
+        $message->bcc('john@johndoe.com', 'John Doe');
+        $message->replyTo('john@johndoe.com', 'John Doe');
+        $message->subject('Subject');
+        $message->priority(3);
+        $message->attach('T:\\mpv-shot0004.png');
     });
+
 
 });
