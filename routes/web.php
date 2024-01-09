@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+
+    $data = [
+        'title'=>"more title",
+        'content'=>'more content',
+    ];
+
+    Mail::send('emails.test', $data, function($message) {
+        $message->to("test@test.com", "Test");
+        $message->subject("Hello!");
+
+    });
+
 });
