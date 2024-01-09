@@ -48,4 +48,14 @@ class User extends Authenticatable
         return $this->belongsTo('\App\Models\Role');
     }
 
+    public function isAdmin()
+    {
+        // Best if using $this->role->id == 1
+        if ($this->role->role_name === "Administrator")
+        {
+            return true;
+        }
+        return false;
+    }
+
 }

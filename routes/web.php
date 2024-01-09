@@ -14,7 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+
+    $user = Auth::user();
+
+    if ($user->isAdmin())
+    {
+        return "This user is an administrator.";
+    }
+    return "This user is a subscriber.";
+
+
 });
 
 Auth::routes();
