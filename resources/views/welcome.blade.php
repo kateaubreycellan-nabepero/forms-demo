@@ -64,7 +64,7 @@
         <x-home-search></x-home-search>
 
           <!-- Categories Widget -->
-        <x-categories></x-categories>
+        <x-categories :users="$users"></x-categories>
 
           <!-- Side Widget -->
         <x-side-widget></x-side-widget>

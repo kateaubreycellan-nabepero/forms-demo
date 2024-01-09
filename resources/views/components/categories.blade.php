@@ -4,9 +4,12 @@
       <div class="row">
         <div class="col-lg-6">
           <ul class="list-unstyled mb-0">
+
+            @foreach($users as $user)
             <li>
-              <a href="#">Web Design</a>
+              <a href="#">{{ $user->name }}</a>
             </li>
+            @endforeach
             <li>
               <a href="#">HTML</a>
             </li>
