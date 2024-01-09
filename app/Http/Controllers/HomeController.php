@@ -24,10 +24,19 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         // Setting a session
-        // $request->session()->put(['some text'=>'more text here']);
+        $request->session()->put(['some text'=>'more text here']);
 
         // Another way of setting a session, but globally
-        session(['another session'=>'some more text here']);
+        session(['more sessions'=>'your session']);
+
+        // Updating a sessions
+        session(['more sessions'=>'replaced session']);
+
+        // Deleting sessions
+        $request->session()->forget('more sessions');
+
+        // Delete all sessions
+        $request->session()->flush();
 
         // Reading sessions
         return $request->session()->all();
